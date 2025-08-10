@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>미미농산 - 정직한 3대째 쌀 농가</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 간단한 커스텀 스타일 */
+    .product-img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .banner-bg {
+      background: url('https://images.unsplash.com/photo-1506801310323-534be5e7f3d9?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- 헤더 -->
+  <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-30">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1506807803488-8eafc153e9a7?q=80&w=80&auto=format&fit=crop&crop=faces" alt="미미농산 로고" class="w-12 h-12 rounded-full shadow" />
+        <div>
+          <h1 class="text-xl font-extrabold text-green-700 tracking-wide">미미농산</h1>
+          <p class="text-sm text-green-600">3대째 이어온 정직한 쌀 농가</p>
+        </div>
+      </div>
+      <nav class="flex items-center gap-5 text-green-700 font-medium text-sm">
+        <a href="#story" class="hover:underline">스토리</a>
+        <a href="#products" class="hover:underline">제품소개</a>
+        <a href="#reviews" class="hover:underline">고객 후기</a>
+        <a href="#blog" class="hover:underline">농사일기</a>
+        <a href="#contact" class="hover:underline">문의하기</a>
+        <button id="cartBtn" class="relative bg-green-600 text-white px-3 py-2 rounded-md hover:bg-green-700 transition">
+          장바구니
+          <span id="cartCount" class="ml-2 bg-white text-green-700 rounded-full w-6 h-6 inline-flex items-center justify-center font-semibold">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 비주얼 -->
+  <section class="banner-bg h-[450px] flex items-center justify-center text-white relative mt-16">
+    <div class="bg-black bg-opacity-40 p-8 rounded-lg max-w-3xl text-center">
+      <h2 class="text-4xl font-extrabold mb-3 leading-tight">3대째 이어온 신뢰의 맛, 미미농산 신동진쌀</h2>
+      <p class="text-lg mb-6">자연과 사람을 생각하는 정직한 농부의 마음을 담았습니다.</p>
+      <a href="#products" class="inline-block bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold shadow-lg transition">제품 보러가기</a>
+      <a href="https://smartstore.naver.com/mimifarm" target="_blank" rel="noopener" class="inline-block ml-4 bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition">스마트스토어에서 구매</a>
+    </div>
+  </section>
+
+  <!-- 스토리 섹션 -->
+  <secti
