@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>미미농산 - 온라인 쇼핑</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 간단한 커스텀 스타일 */
+    .product-img{height:200px;object-fit:cover;width:100%;border-radius:8px}
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- 헤더 -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1506807803488-8eafc153e9a7?q=80&w=80&auto=format&fit=crop&crop=faces" class="w-12 h-12 rounded-full" alt="logo">
+        <div>
+          <h1 class="text-xl font-semibold">미미농산</h1>
+          <p class="text-sm text-gray-500">3대째 신동진쌀 전문</p>
+        </div>
+      </div>
+      <nav class="flex items-center gap-4">
+        <a href="#products" class="text-sm hover:underline">제품</a>
+        <a href="#about" class="text-sm hover:underline">회사소개</a>
+        <a href="#blog" class="text-sm hover:underline">농사일기</a>
+        <button id="cartBtn" class="relative bg-green-600 text-white px-3 py-2 rounded-md">장바구니 <span id="cartCount" class="ml-2 bg-white text-green-600 rounded-full w-6 h-6 inline-flex items-center justify-center">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 영웅 섹션 -->
+  <section class="bg-[url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center">
+    <div class="backdrop-brightness-75">
+      <div class="container mx-auto px-4 py-24 text-white">
+        <h2 class="text-4xl font-bold">정직한 농부의 쌀, 미미농산</h2>
+        <p class="mt-4 text-lg">직접 재배하고 정미한 신선한 신동진쌀을 집으로 보내드립니다.</p>
+        <div class="mt-6">
+          <a href="#products" class="inline-block bg-white text-green-700 px-5 py-2 rounded-md font-medium">제품 보러가기</a>
+          <a href="#" class="inline-block ml-3 bg-transparent border border-white px-5 py-2 rounded-md">스마트스토어에서 구매</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제품 목록 -->
+  <main class="container mx-auto px-4 py-10">
+    <h3 id="products" class="text-2xl font-semibold mb-6">제품</h3>
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <!-- 회사소개 -->
+    <section id="about" class="mt-16 bg-white p-6 rounded-md shadow-sm">
+      <h4 class="text-xl font-semibold">회사 소개</h4>
+      <p class="mt-3 text-sm leading-relaxed">미미농산은 3대째 이어온 전통과 정직한 재배 방식으로 고품질 쌀을 생산합니다. 농약 사용을 최소화하고, 수확 후 바로 도정하여 신선도를 지킵니다.</p>
+    </section>
+
+    <!-- 블로그 / 농사일기 -->
+    <section id="blog" class="mt-6">
+      <h4 class="text-xl font-semibold">농사일기(샘플)</h4>
+      <article class="mt-3 bg-white p-4 rounded-md shadow-sm">
+        <h5 class="font-medium">2025년 햅쌀 수확 완료</h5>
+        <p class="mt-2 text-sm text-gray-600">올해는 날씨가 좋아 쌀 품질이 우수하게 나왔습니다. 곧 햅쌀 판매를 시작합니다.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- 장바구니 사이드바 -->
+  <aside id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform">
+    <div class="p-4 flex items-center justify-between border-b">
+      <h4 class="font-semibold">장바구니</h4>
+      <button id="closeCart" class="text-gray-500 hover:text-gray-800">닫기 ✕</button>
+    </div>
+    <div id="cartItems" class="p-4 space-y-4 overflow-y-auto" style="max-height:60vh"></div>
+    <div class="p-4 border-t">
+      <div class="flex items-center justify-between mb-3">
+        <span>합계</span>
+        <strong id="cartTotal">₩0</strong>
+      </div>
+      <button id="checkoutBtn" class="w-full bg-green-600 text-white py-2 rounded-md">결제하기</button>
+    </div>
+  </aside>
+
+  <!-- 체크아웃 모달 -->
+  <div id="checkoutModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center">
+    <div class="bg-white w-full max-w-xl p-6 rounded-md">
+      <h4 class="text-lg font-semibold">주문서</h4>
+      <form id="checkoutForm" class="mt-4 space-y-3">
+        <input required name="name" placeholder="받는 분" class="w-full p-2 border rounded" />
+        <input required name="phone" placeholder="연락처" class="w-full p-2 border rounded" />
+        <input required name="address" placeholder="주소" class="w-full p-2 border rounded" />
+        <select name="payment" class="w-full p-2 border rounded">
+          <option>무통장입금</option>
+          <option>카드결제(샘플)</option>
+        </select>
+        <div class="flex gap-2">
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">주문완료</button>
+          <button type="button" id="cancelCheckout" class="px-4 py-2 border rounded">취소</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="mt-12 bg-white py-6">
+    <div class="container mx-auto px-4 text-sm text-gray-600">
+      <p>© 미미농산 · 연락처: 010-0000-0000 · 이메일: mimifarm@example.com</p>
+    </div>
+  </footer>
+
+<script>
+// 샘플 제품 데이터 (원하면 여기서 추가/수정 가능)
+const PRODUCTS = [
+  {id: 'p1', title:'신동진 쌀 4kg', price:24000, img:'https://images.unsplash.com/photo-1506801310323-534be5e7f3d9?q=80&w=900&auto=format&fit=crop'},
+  {id: 'p2', title:'찹쌀 3kg', price:21000, img:'https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=900&auto=format&fit=crop'},
+  {id: 'p3', title:'현미 4kg', price:26000, img:'https://images.unsplash.com/photo-1524594154909-6f2f0a6b1a3e?q=80&w=900&auto=format&fit=crop'}
+];
+
+// 렌더링
+const productGrid = document.getElementById('productGrid');
+const cartBtn = document.getElementById('cartBtn');
+const cartSidebar = document.getElementById('cartSidebar');
+const closeCart = document.getElementById('closeCart');
+const cartItemsEl = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotalEl = document.getElementById('cartTotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const checkoutModal = document.getElementById('checkoutModal');
+const cancelCheckout = document.getElementById('cancelCheckout');
+const checkoutForm = document.getElementById('checkoutForm');
+
+let cart = JSON.parse(localStorage.getItem('mimi_cart') || '{}');
+
+function renderProducts(){
+  productGrid.innerHTML = '';
+  PRODUCTS.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'bg-white p-4 rounded-md shadow-sm';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.title}" class="product-img">
+      <h4 class="mt-3 font-medium">${p.title}</h4>
+      <p class="mt-1 text-sm text-gray-600">₩${p.price.toLocaleString()}</p>
+      <div class="mt-3 flex gap-2">
+        <button data-id="${p.id}" class="addBtn w-full bg-green-600 text-white py-2 rounded-md">장바구니 담기</button>
+        <a href="#" class="w-36 inline-flex items-center justify-center border rounded-md px-2">스마트스토어</a>
+      </div>
+    `;
+    productGrid.appendChild(card);
+  });
+}
+
+function openCart(){ cartSidebar.style.transform = 'translateX(0)'; }
+function closeCartFn(){ cartSidebar.style.transform = 'translateX(100%)'; }
+
+function saveCart(){ localStorage.setItem('mimi_cart', JSON.stringify(cart)); }
+
+function updateCartUI(){
+  const items = Object.values(cart);
+  cartItemsEl.innerHTML = items.length ? items.map(item=>`
+    <div class="flex items-center gap-3">
+      <img src="${item.img}" class="w-16 h-16 rounded object-cover">
+      <div class="flex-1">
+        <div class="flex justify-between"><div class="text-sm font-medium">${item.title}</div><div class="text-sm">₩${(item.price*item.qty).toLocaleString()}</div></div>
+        <div class="mt-2 flex items-center gap-2">
+          <button data-id="${item.id}" class="decr px-2 py-1 border rounded">-</button>
+          <span class="px-2">${item.qty}</span>
+          <button data-id="${item.id}" class="incr px-2 py-1 border rounded">+</button>
+          <button data-id="${item.id}" class="remove ml-3 text-sm text-red-600">삭제</button>
+        </div>
+      </div>
+    </div>
+  `).join('') : '<p class="text-sm text-gray-500">장바구니가 비어있습니다.</p>';
+
+  const total = items.reduce((s,i)=>s + i.price*i.qty, 0);
+  cartTotalEl.textContent = `₩${total.toLocaleString()}`;
+  cartCount.textContent = items.reduce((s,i)=>s + i.qty,0);
+
+  // 이벤트 바인딩
+  cartItemsEl.querySelectorAll('.incr').forEach(b=>b.addEventListener('click', e=>{
+    const id = e.currentTarget.dataset.id; cart[id].qty +=1; saveCart(); updateCartUI();
+  }));
+  cartItemsEl.querySelectorAll('.decr').forEach(b=>b.addEventListener('click', e=>{
+    const id = e.currentTarget.dataset.id; if(cart[id].qty>1) cart[id].qty -=1; else delete cart[id]; saveCart(); updateCartUI();
+  }));
+  cartItemsEl.querySelectorAll('.remove').forEach(b=>b.addEventListener('click', e=>{ const id = e.currentTarget.dataset.id; delete cart[id]; saveCart(); updateCartUI(); }));
+}
+
+// 초기 렌더
+renderProducts(); updateCartUI();
+
+// 제품 추가 이벤트
+productGrid.addEventListener('click', e=>{
+  if(e.target.classList.contains('addBtn')){
+    const id = e.target.dataset.id;
+    const prod = PRODUCTS.find(p=>p.id===id);
+    if(!cart[id]) cart[id] = {...prod, qty:1}; else cart[id].qty +=1;
+    saveCart(); updateCartUI(); openCart();
+  }
+});
+
+cartBtn.addEventListener('click', openCart);
+closeCart.addEventListener('click', closeCartFn);
+
+checkoutBtn.addEventListener('click', ()=>{ checkoutModal.classList.remove('hidden'); checkoutModal.classList.add('flex'); });
+cancelCheckout.addEventListener('click', ()=>{ checkoutModal.classList.add('hidden'); checkoutModal.classList.remove('flex'); });
+
+checkoutForm.addEventListener('submit', e=>{
+  e.preventDefault();
+  const form = new FormData(checkoutForm);
+  const order = {
+    id: 'ORD' + Date.now(),
+    name: form.get('name'),
+    phone: form.get('phone'),
+    address: form.get('address'),
+    payment: form.get('payment'),
+    items: Object.values(cart),
+    total: Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0),
+    createdAt: new Date().toISOString()
+  };
+  // 실제 서비스라면 서버로 전송해야 함. 여기선 로컬에 저장(샘플)
+  const orders = JSON.parse(localStorage.getItem('mimi_orders')||'[]'); orders.push(order); localStorage.setItem('mimi_orders', JSON.stringify(orders));
+  cart = {}; saveCart(); updateCartUI(); checkoutModal.classList.add('hidden'); checkoutModal.classList.remove('flex');
+  alert('주문이 접수되었습니다. 주문번호: ' + order.id + '\n(샘플 시스템입니다 — 실제 결제/송장 연동 필요)');
+});
+
+// 간단한 키보드 닫기
+window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ checkoutModal.classList.add('hidden'); checkoutModal.classList.remove('flex'); closeCartFn(); } });
+</script>
+
+</body>
+</html>
