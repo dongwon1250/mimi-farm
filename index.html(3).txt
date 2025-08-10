@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>미미농산 - 3대째 이어온 신뢰의 신동진 쌀 농가</title>
+  <meta name="description" content="3대째 정직과 신뢰로 키운 신동진 쌀, 미미농산 공식 홈페이지입니다. 자연과 사람을 생각하는 농부의 마음을 담은 건강한 쌀을 만나보세요." />
+  <meta name="keywords" content="미미농산, 신동진쌀, 쌀농가, 친환경 농산물, 3대째 농부, 신동진, 건강한 쌀" />
+  <meta name="author" content="미미농산" />
+  <link rel="icon" href="https://images.unsplash.com/photo-1506807803488-8eafc153e9a7?q=80&w=80&auto=format&fit=crop&crop=faces" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* 커스텀 스타일 */
+    .product-image {
+      height: 220px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+    /* 모바일 메뉴 숨김/표시 */
+    #mobileMenu {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      #desktopMenu {
+        display: none;
+      }
+      #mobileMenu {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- 상단 고정 헤더 -->
+  <header class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#" class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1506807803488-8eafc153e9a7?q=80&w=80&auto=format&fit=crop&crop=faces" alt="미미농산 로고" class="w-12 h-12 rounded-full" />
+        <div>
+          <h1 class="font-extrabold text-2xl text-green-700 tracking-tight">미미농산</h1>
+          <p class="text-sm text-green-600">3대째 이어온 정직한 쌀 농가</p>
+        </div>
+      </a>
+
+      <!-- PC 메뉴 -->
+      <nav id="desktopMenu" class="space-x-8 font-semibold text-green-700">
+        <a href="#story" class="hover:underline">스토리</a>
+        <a href="#products" class="hover:underline">제품소개</a>
+        <a href="#reviews" class="hover:underline">고객 후기</a>
+        <a href="#blog" class="hover:underline">농사일기</a>
+        <a href="#contact" class="hover:underline">문의하기</a>
+      </nav>
+
+      <!-- 모바일 메뉴 토글 버튼 -->
+      <button id="mobileMenuBtn" class="md:hidden text-green-700 focus:outline-none" aria-label="메뉴 열기">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- 모바일 메뉴 -->
+    <nav id="mobileMenu" class="bg-white shadow-md py-4 px-6 space-y-4 font-semibold text-green-700 md:hidden">
+      <a href="#story" class="block hover:underline">스토리</a>
+      <a href="#products" class="block hover:underline">제품소개</a>
+      <a href="#reviews" class="block hover:underline">고객 후기</a>
+      <a href="#blog" class="block hover:underline">농사일기</a>
+      <a href="#contact" class="block hover:underline">문의하기</a>
+    </nav>
+  </header>
+
+  <main class="pt-28">
+
+    <!-- 메인 비주얼 -->
+    <section class="relative bg-cover bg-center h-[450px]" style="background-image: url('https://images.unsplash.com/photo-1506801310323-534be5e7f3d9?q=80&w=1600&auto=format&fit=crop');">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl mb-4">3대째 이어온 신뢰의 맛, 미미농산 신동진쌀</h2>
+        <p class="text-lg md:text-xl max-w-xl mb-6">자연과 사람을 생각하는 정직한 농부의 마음을 담았습니다.</p>
+        <div class="space-x-4">
+          <a href="#products" class="bg-green-600 hover:bg-green-700 px-8 py-3 rounded-lg font-semibold shadow-lg transition">제품 보러가기</a>
+          <a href="https://smartstore.naver.com/mimifarm" target="_blank" rel="noopener" class="border border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition">스마트스토어 구매하기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 스토리 섹션 -->
+    <section id="story" class="container mx-auto max-w-5xl px-4 py-16">
+      <h3 class="text-3xl font-bold text-green-700 mb-8 border-b-4 border-green-500 inline-block pb-2">미미농산 이야기</h3>
+      <div class="flex flex-col md:flex-row gap-10 items-center">
+        <img src="https://images.unsplash.com/photo-1522960859214-2b5acb0e1601?q=80&w=600&auto=format&fit=crop" alt="미미농산 농부" class="rounded-lg shadow-md md:w-1/2" />
+        <article class="md:w-1/2 text-gray-700 leading-relaxed text-base">
+          <p class="mb-5">
+            미미농산은 3대째 신동진쌀을 재배해온 가족 농가입니다. 할아버지 때부터 전해 내려오는 정직과 정성으로
+            농사를 지으며, 토양과 환경을 소중히 여기는 친환경 농법을 실천하고 있습니다.
+          </p>
+          <p class="mb-5">
+            농약과 화학비료 사용을 최소화하여 자연의 순환을 지키고, 소비자에게 안전하고 맛있는 쌀을 제공하기 위해
+            정미부터 포장까지 직접 관리합니다.
+          </p>
+          <p>
+            앞으로도 미미농산은 지역 사회와 함께 성장하며, 건강한 식문화를 만들어가는 농가로 자리매김하겠습니다.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 제품 섹션 -->
+    <section id="products" class="bg-white py-16">
+      <div class="container mx-auto max-w-6xl px-4">
+        <h3 class="text-3xl font-bold text-green-700 mb-10 border-b-4 border-green-500 inline-block pb-2">주요 제품 소개</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <article class="rounded-lg shadow-lg bg-gray-50 p-6 flex flex-col">
+            <img src="https://images.unsplash.com/photo-1506801310323-534be5e7f3d9?q=80&w=900&auto=format&fit=crop" alt="신동진 쌀 4kg" class="product-image mb-5" />
+            <h4 class="text-xl font-semibold text-green-800 mb-2">신동진 쌀 4kg</h4>
+            <p class="text-gray-700 flex-grow mb-4">
+              밥맛이 뛰어난 신동진 품종을 4kg 포장에 담았습니다. 가족의 건강을 생각하는 정성 가득한 쌀입니다.
+            </p>
+            <ul class="list-disc list-inside text-green-700 text-sm mb-4">
+              <li>밥맛이 고소하고 찰짐</li>
+              <li>깨끗한 토양과 친환경 농법</li>
+              <li>4인 가족 1주일 식사량 적합</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between">
+              <p class="font-bold text-green-900 text-lg">₩24,000</p>
+              <a href="https://smartstore.naver.com/mimifarm/products/p1" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition">구매하기</a>
+            </div>
+          </article>
+
+          <article class="rounded-lg shadow-lg bg-gray-50 p-6 flex flex-col">
+            <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=900&auto=format&fit=crop" alt="찹쌀 3kg" class="product-image mb-5" />
+            <h4 class="text-xl font-semibold text-green-800 mb-2">찹쌀 3kg</h4>
+            <p class="text-gray-700 flex-grow mb-4">
+              떡, 찜, 각종 전통요리에 알맞은 부드럽고 쫀득한 찹쌀입니다. 3kg 소포장으로 신선함을 유지합니다.
+            </p>
+            <ul class="list-disc list-inside text-green-700 text-sm mb-4">
+              <li>부드러운 식감과 찰진 맛</li>
+              <li>전통 음식에 최적화</li>
+              <li>소량 포장으로 신선도 유지</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between">
+              <p class="font-bold text-green-900 text-lg">₩21,000</p>
+              <a href="https://smartstore.naver.com/mimifarm/products/p2" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition">구매하기</a>
+            </div>
+          </article>
+
+          <article class="rounded-lg shadow-lg bg-gray-50 p-6 flex flex-col">
+            <img src="https://images.unsplash.com/photo-1524594154909-6f2f0a6b1a3e?q=80&w=900&auto=format&fit=crop" alt="현미 4kg" class="product-image mb-5" />
+            <h4 class="text-xl font-semibold text-green-800 mb-2">현미 4kg</h4>
+            <p class="text-gray-700 flex-grow mb-4">
+              건강한 식단을 위한 영양 가득 현미입니다. 섬유질과 각종 영양소가 풍부해 웰빙 식사에 좋습니다.
+            </p>
+            <ul class="list-disc list-inside text-green-700 text-sm mb-4">
+              <li>섬유질 풍부, 다이어트에 도움</li>
+              <li>현미 특유의 고소한 맛</li>
+              <li>4kg 대용량으로 경제적</li>
+            </ul>
+            <div class="mt-auto flex items-center justify-between">
+              <p class="font-bold text-green-900 text-lg">₩26,000</p>
+              <a href="https://smartstore.naver.com/mimifarm/products/p3" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition">구매하기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 고객 후기 -->
+    <section id="reviews" class="container mx-auto max-w-5xl px-4 py-16">
+      <h3 class="text-3xl font-bold text-green-700 mb-8 border-b-4 border-green-500 inline-block pb-2">고객 후기 및 인증</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <blockquote class="bg-green-50 p-6 rounded-lg shadow-md italic text-gray-700">
+          "미미농산 쌀을 먹은 후 밥맛이 달라졌어요. 신선하고 고소한 맛에 가족 모두 만족합니다."
+          <footer class="mt-3 font-semibold text-green-700">- 김진수 님 (경기도)</footer>
+        </blockquote>
+        <blockquote class="bg-green-50 p-6 rounded-lg shadow-md italic text-gray-700">
+          "3대째 이어온 농가라 믿음이 갑니다. 품질이 일정하고 배송도 빠릅니다."
+          <footer class="mt-3 font-semibold text-green-700">- 이은영 님 (전라남도)</footer>
+        </blockquote>
+        <blockquote class="bg-green-50 p-6 rounded-lg shadow-md italic text-gray-700">
+          "친환경 농법과 정성 가득한 미미농산 쌀, 앞으로도 계속 주문할 계획입니다."
+          <footer class="mt-3 font-semibold text-green-700">- 박성호 님 (부산)</footer>
+        </blockquote>
+        <div class="bg-green-50 rounded-lg shadow-md flex flex-col items-center justify-center p-6">
+          <img src="https://img.icons8.com/color/96/000000/certificate.png" alt="인증 마크" class="mb-3" />
+          <p class="font-semibold text-green-700">국내 우수 농산물 인증</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 농사일기 -->
+    <section id="blog" class="bg-green-50 py-16">
+      <div class="container mx-auto max-w-5xl px-4">
+        <h3 class="text-3xl font-bold text-green-700 mb-8 border-b-4 border-green-500 inline-block pb-2">농사일기 & 이벤트</h3>
+        <article class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h4 class="font-semibold mb-2 text-green-700">2025년 햅쌀 수확 완료</h4>
+          <p>올해는 좋은 기후 덕분에 쌀 품질이 매우 우수하게 나왔습니다. 신선한 햅쌀 판매를 곧 시작할 예정입니다.</p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="font-semibold mb-2 text-green-700">가을맞이 특별 할인 이벤트</h4>
+          <p>9월 한 달간 신동진쌀 제품 전 품목 10% 할인 행사 진행! 건강한 밥상을 합리적인 가격으로 만나보세요.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 문의하기 -->
+    <section id="contact" class="container mx-auto max-w-3xl px-4 py-16">
+      <h3 class="text-3xl font-bold text-green-700 mb-8 border-b-4 border-green-500 inline-block pb-2">문의하기</h3>
+      <form id="contactForm" class="
